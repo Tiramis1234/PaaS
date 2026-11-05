@@ -1,2 +1,3 @@
 #LAPTOP
-cluster_ip: 10.10.10.52
+cluster_ip: node-02
+cluster_hostname: node-02

@@ -1,2 +1,4 @@
 #THINKSTATION 12G
-cluster_ip: 10.10.10.50
+cluster_ip: node-00
+cluster_hostname: node-00
+ansible_user: k8sadmin

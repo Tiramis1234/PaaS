@@ -1,0 +1,29 @@
+- name: Update packets to latest version
+  become: true
+  ansible.builtin.apt:
+      upgrade: safe
+      update_cache: true
+
+- name: Set hostname
+  become: true
+  ansible.builtin.hostname:
+    name: "{{ cluster_hostname }}"
+    use: systemd
+
+- name: Set timezone to Warsaw
+  become: true
+  community.general.timezone:
+      name: Europe/Warsaw
+
+- name: Make sure crony is installed
+  become: true
+  ansible.builtin.apt:
+    name: chrony
+    state: present
+
+- name: Make sure crony is enabled
+  become: true
+  ansible.builtin.systemd_service:
+    name: chrony
+    state: started
+    enabled: true
