@@ -4,7 +4,7 @@
     name: unattended-upgrades
     state: present
 
-- name: Add 20auto upgrades file to /etc/apt/apt.conf.d/
+- name: Add 20auto-upgrades file to /etc/apt/apt.conf.d/
   become: true
   ansible.builtin.copy:
     src: 20auto-upgrades
@@ -13,7 +13,7 @@
     group: root
     mode: '0644'
 
-- name: Add 51unatended-upgrades file to /etc/apt/apt.conf.d/
+- name: Add 51unattended-upgrades file to /etc/apt/apt.conf.d/
   become: true
   ansible.builtin.template:
     src: 51unattended-upgrades.j2
@@ -21,4 +21,4 @@
     owner: root
     group: root
     mode: '0644'
-    validate: apt-config -c 51unattended-upgrades %s dump
+    validate: apt-config -c %s dump

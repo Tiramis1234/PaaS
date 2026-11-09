@@ -1,9 +1,3 @@
-- name: Update packets to latest version
-  become: true
-  ansible.builtin.apt:
-      upgrade: safe
-      update_cache: true
-
 - name: Set hostname
   become: true
   ansible.builtin.hostname:
@@ -32,7 +26,7 @@
   community.general.timezone:
       name: Europe/Warsaw
 
-- name: Make sure crony is installed
+- name: Make sure chrony is installed
   become: true
   ansible.builtin.apt:
     name: chrony
@@ -44,3 +38,7 @@
     name: chrony
     state: started
     enabled: true
+
+- name: Import updates tasks
+  ansible.builtin.import_tasks:
+    file: updates.yml
