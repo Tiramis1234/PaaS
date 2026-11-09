@@ -1,3 +1,5 @@
 #THINKSTATION 8G
-cluster_ip: node-01
+tailscale_host_ip: node-01
+cluster_ip: 10.10.10.51
 cluster_hostname: node-01
+common_restart_time: "02:00"

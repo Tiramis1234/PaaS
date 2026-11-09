@@ -1,4 +1,5 @@
 #THINKSTATION 12G
-cluster_ip: node-00
+tailscale_host_ip: node-00
+cluster_ip: 10.10.10.50
 cluster_hostname: node-00
-ansible_user: k8sadmin
+common_restart_time: "01:00"

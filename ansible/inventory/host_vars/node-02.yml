@@ -1,3 +1,5 @@
 #LAPTOP
-cluster_ip: node-02
+tailscale_host_ip: node-02
+cluster_ip: 10.10.10.52
 cluster_hostname: node-02
+common_restart_time: "03:00"

@@ -13,3 +13,4 @@ Each record explains one significant decision in this project: its context, the 
 | [007](007-pin-versions-to-sha-and-checksums.md) | Versions pinned to SHA digests and checksums | Trivy supply chain incident, March 2026 |
 | [008](008-laptop-as-control-plane-node-without-battery.md) | Laptop as a mainly control plane node, without a battery | 8 GB of RAM, risk of battery swelling when running 24/7 |
 | [009](009-first-ansible-run-on-a-fresh-node.md) | First Ansible run is an explicit manual step | Target address and account do not exist on a fresh node |
+| [010](010-tailscale-as-admin-access-path.md) | Tailscale only as an admin access path (proposed) | Manage nodes from outside the LAN; cluster traffic stays on `10.10.10.0/24` |

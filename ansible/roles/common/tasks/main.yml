@@ -10,6 +10,23 @@
     name: "{{ cluster_hostname }}"
     use: systemd
 
+- name: Ensure localhost entry exists in /etc/hosts
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/hosts
+    regexp: '^127\.0\.0\.1\s'
+    line: "127.0.0.1 localhost"
+    state: present
+
+- name: Map new hostname in /etc/hosts
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/hosts
+    regexp: '^127\.0\.1\.1\s'
+    line: "127.0.1.1 {{ cluster_hostname }}"
+    insertafter: '^127\.0\.0\.1\s'
+    state: present
+
 - name: Set timezone to Warsaw
   become: true
   community.general.timezone:
@@ -21,7 +38,7 @@
     name: chrony
     state: present
 
-- name: Make sure crony is enabled
+- name: Make sure chrony is enabled
   become: true
   ansible.builtin.systemd_service:
     name: chrony

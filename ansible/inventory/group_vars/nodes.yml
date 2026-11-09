@@ -1,2 +1,2 @@
 ansible_user: debian
-ansible_host: "{{ cluster_ip }}"
+ansible_host: "{{ tailscale_host_ip }}"
